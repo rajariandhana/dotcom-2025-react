@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
 import ProjectCard from "../Projects/ProjectCard"
-import { div } from "framer-motion/client"
-
+import ProjectModal from "../Projects/ProjectModal"
 // import Hero from "./Hero"
 export default function Home(){
+    const [modal, setModal]=useState(null);
     return (
         <main>
             <Hero></Hero>
-            <BestProjects></BestProjects>
-            <BestShots></BestShots>
+            <BestProjects onOpen={setModal} />
+            <BestShots />
+            {modal && <ProjectModal project={modal} onClose={() => setModal(null)} />}
         </main>
     )
 }
@@ -33,34 +34,39 @@ const Hero=()=>{
     )
 }
 
-function BestProjects(){
-    const [projects,setProjects]=useState([]);
-    const slugs=["boombatag-2024", "box-of-curiosity", "minesweeper"];
-    useEffect(()=>{
+function BestProjects({ onOpen }) {
+    const [projects, setProjects] = useState([]);
+    const slugs = ["boombatag-2024", "box-of-curiosity", "minesweeper"];
+
+    useEffect(() => {
         fetch("/src/assets/projects.json")
             .then((res) => res.json())
             .then((data) => {
                 const filtered = data.filter((project) =>
                     slugs.includes(project.slug)
-                  );
-                  setProjects(filtered)
+                );
+                setProjects(filtered);
             })
             .catch((err) => console.error("Error fetching projects:", err));
     }, []);
+
     return (
-        <div className=" motion-preset-slide-down ">
+        <div className="motion-preset-slide-down">
             <h2 className="text-2xl mb-2 cursor-pointer">
-                🚀 Best Projects
+                🚀 Favorite Projects
             </h2>
             <div className="w-fit grid grid-cols-1 md:grid-cols-3 gap-4">
                 {projects.map((project) => (
-                    <ProjectCard key={project.slug} project={project} />
+                    <ProjectCard
+                        key={project.slug}
+                        project={project}
+                        onClick={() => onOpen(project)}  // call onOpen passed from parent
+                    />
                 ))}
             </div>
         </div>
     )
 }
-
 function BestShots(){
     const bestShots = [
         "/src/assets/gallery/IMG_9509.JPG",

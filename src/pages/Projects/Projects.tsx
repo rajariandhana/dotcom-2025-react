@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "../Projects/ProjectCard"
+import ProjectModal from "./ProjectModal";
 export default function(){
     const [projects,setProjects]=useState([]);
     const [games,setGames]=useState([]);
     const [webs,setWebs]=useState([]);
     const [others,setOthers]=useState([]);
-    const slugs=["boombatag-2024", "box-of-curiosity", "minesweeper"];
+    const [modal, setModal]=useState(null);
     useEffect(()=>{
         fetch("/src/assets/projects.json")
             .then((res) => res.json())
@@ -30,13 +31,18 @@ export default function(){
     
     return (
         <main className="!max-w-4xl">
+            {modal && <ProjectModal project={modal} onClose={() => setModal(null)} />}
             <div className=" motion-preset-slide-down">
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">
                     🎮  Game Development
                 </h2>
-                <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-4">
+                <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                     {games.map((project) => (
-                        <ProjectCard key={project.slug} project={project} />
+                        <ProjectCard
+                        key={project.slug}
+                        project={project} 
+                        onClick={()=>setModal(project)}
+                        />
                     ))}
                 </ul>
             </div>
@@ -44,9 +50,13 @@ export default function(){
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">
                     🎮  Web Development
                 </h2>
-                <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-4">
+                <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                     {webs.map((project) => (
-                        <ProjectCard key={project.slug} project={project} />
+                        <ProjectCard
+                        key={project.slug}
+                        project={project} 
+                        onClick={()=>setModal(project)}
+                        />
                     ))}
                 </ul>
             </div>
@@ -54,9 +64,13 @@ export default function(){
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">
                     ✨  Other projects
                 </h2>
-                <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-4">
+                <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                     {others.map((project) => (
-                        <ProjectCard key={project.slug} project={project} />
+                        <ProjectCard
+                        key={project.slug}
+                        project={project} 
+                        onClick={()=>setModal(project)}
+                        />
                     ))}
                 </ul>
             </div>

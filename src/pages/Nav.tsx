@@ -21,8 +21,8 @@ const Nav = () => {
   },[location.pathname])
   return (
     //replace absolute with fixed, it makes it sticky but create a bug (scrol down then pick another tab)
-    <nav className="flex justify-center items-center absolute top-0 left-1/2 transform -translate-x-1/2 mt-8 z-50">
-        <div className="w-fit bg-gray-950 p-1 flex gap-0 md:gap-4 text-sm md:text-lg rounded-full">
+    <nav className="flex justify-center items-center absolute top-0 left-1/2 transform -translate-x-1/2 mt-8 z-10">
+        <div className="w-fit bg-gray-950 p-1 flex gap-0 md:gap-4 text-sm md:text-lg rounded-full shadow-lg">
             {tabs.map((tab) => (
                 <NavTab
                 name={tab.name}
