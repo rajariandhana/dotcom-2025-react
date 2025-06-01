@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "../Projects/ProjectCard"
 import ProjectModal from "./ProjectModal";
-export default function(){
+export default function Projects(){
     const [projects,setProjects]=useState([]);
     const [games,setGames]=useState([]);
     const [webs,setWebs]=useState([]);
@@ -30,9 +30,17 @@ export default function(){
       }, [projects]);
     
     return (
+        /**
+         * tambah:
+         * - wasteless
+         * - rajawali
+         * - siputih?
+         * - not space invader
+         * 
+         */
         <main className="!max-w-4xl">
             {modal && <ProjectModal project={modal} onClose={() => setModal(null)} />}
-            <div className=" motion-preset-slide-down">
+            <section>
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">
                     🎮  Game Development
                 </h2>
@@ -45,10 +53,10 @@ export default function(){
                         />
                     ))}
                 </ul>
-            </div>
-            <div className=" motion-preset-slide-down">
+            </section>
+            <section>
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">
-                    🎮  Web Development
+                    🌐  Web Development
                 </h2>
                 <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                     {webs.map((project) => (
@@ -59,10 +67,10 @@ export default function(){
                         />
                     ))}
                 </ul>
-            </div>
-            <div className=" motion-preset-slide-down">
+            </section>
+            <section>
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">
-                    ✨  Other projects
+                    💡  Other projects
                 </h2>
                 <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                     {others.map((project) => (
@@ -73,7 +81,7 @@ export default function(){
                         />
                     ))}
                 </ul>
-            </div>
+            </section>
         </main>
     )
 }

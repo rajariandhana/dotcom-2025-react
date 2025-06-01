@@ -1,6 +1,6 @@
 export default function Footer(){
     return(
-        <footer className="py-4 pb-12 flex flex-col justify-center items-center text-sm text-gray-900 gap-2 mb-12">
+        <footer className="my-12 flex flex-col justify-center items-center text-sm text-gray-900 gap-2">
             <div className="flex justify-center items-center">
                 rajariandhana@gmail.com
             </div>

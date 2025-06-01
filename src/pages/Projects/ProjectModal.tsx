@@ -26,7 +26,7 @@ export default function ProjectModal({ project, onClose }) {
   return (
     <div
       onClick={onClose} // clicking the background closes modal
-      className="fixed top-0 left-0 w-screen h-screen bg-black/50 z-50 flex items-center justify-center"
+      className="fixed top-0 left-0 w-screen h-screen bg-black/50 z-50 flex items-center justify-center motion-preset-fade"
     >
       <div
         onClick={(e) => e.stopPropagation()} // prevent modal from closing when clicking inside it

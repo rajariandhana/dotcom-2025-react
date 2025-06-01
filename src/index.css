@@ -39,5 +39,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main {
-  @apply flex flex-col justify-center items-center max-w-3xl mt-24 gap-y-6 md:gap-y-12  mx-6 md:mx-auto
+  @apply flex flex-col justify-center items-center max-w-3xl mt-24 md:mt-32 gap-y-6 md:gap-y-12  mx-6 md:mx-auto;
+}
+section{
+  @apply motion-preset-slide-down;
 }
