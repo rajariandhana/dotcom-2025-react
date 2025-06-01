@@ -36,3 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 .tag {
   @apply bg-gray-800 rounded-md shadow-md px-2 py-1 w-fit text-white text-xs;
 }
+
+main {
+  @apply flex flex-col justify-center items-center p-6 mx-auto max-w-3xl sm:px-6 lg:px-8 mt-16 md:mt-24 gap-y-12
+}

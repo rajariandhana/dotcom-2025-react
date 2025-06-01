@@ -2,8 +2,9 @@ import './App.css'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
 import Nav from './pages/Nav'
-import Home from './pages/Home'
-import Projects from './pages/Projects'
+import Footer from './pages/Footer'
+import Home from './pages/Home/Home'
+import Projects from './pages/Projects/Projects'
 import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter([
@@ -33,6 +34,7 @@ function Layout(){
     <>
       <Nav></Nav>
       <Outlet></Outlet>
+      <Footer></Footer>
     </>
   )
 }

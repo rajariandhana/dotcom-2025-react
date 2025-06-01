@@ -1,10 +1,73 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-export default function Nav(){
-    return (
-        <nav>
-            <Link to={"/"}>Home</Link>
-            <Link to={"/projects"}>Projects</Link>
-        </nav>
-    )
-}
+const tabs = [
+    {'name':'Home','to':'/'},
+    {'name':'Projects','to':'/projects'},
+    {'name':'Experience','to':'/experience'},
+    {'name':'Gallery','to':'/gallery'},
+];
+
+const Nav = () => {
+    const location = useLocation();
+  const [selected, setSelected] = useState(tabs[0].name);
+
+  useEffect(()=>{
+    const currentTab = tabs.find(tab=> tab.to===location.pathname);
+    if(currentTab){
+        setSelected(currentTab.name);
+    }
+  },[location.pathname])
+  return (
+    //replace absolute with fixed, it makes it sticky but create a bug (scrol down then pick another tab)
+    <nav className="flex justify-center items-center absolute top-0 left-1/2 transform -translate-x-1/2 mt-8 z-50">
+        <div className="w-fit bg-gray-950 p-1 flex gap-0 md:gap-4 text-sm md:text-lg rounded-full">
+            {tabs.map((tab) => (
+                <NavTab
+                name={tab.name}
+                to={tab.to}
+                selected={selected === tab.name}
+                setSelected={setSelected}
+                key={tab.name}
+                />
+            ))}
+      </div>
+    </nav>
+  );
+};
+
+const NavTab = ({
+  name,
+  to,
+  selected,
+  setSelected,
+}: {
+  name: string;
+  to: string;
+  selected: boolean;
+  setSelected: Dispatch<SetStateAction<string>>;
+}) => {
+  return (
+    <Link
+    to={to}
+      onClick={() => setSelected(name)}
+      className={`${
+        selected
+          ? "text-white"
+          : "text-slate-300 hover:text-slate-200 hover:bg-gray-800"
+      } transition-colors px-4 py-1 rounded-full relative`}
+    >
+      <span className="relative z-10">{name}</span>
+      {selected && (
+        <motion.span
+          layoutId="pill-tab"
+          transition={{ type: "spring", duration: 0.5 }}
+          className="absolute inset-0 z-0 bg-gradient-to-r from-indigo-500 to-rose-500 rounded-full"
+        ></motion.span>
+      )}
+    </Link>
+  );
+};
+
+export default Nav;
