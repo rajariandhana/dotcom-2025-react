@@ -48,7 +48,7 @@ export default function ProjectModal({ project, onClose }) {
               {project.techs.map((tech) => (
                   <li
                   key={tech}
-                  className="bg-blue-950 text-white text-sm px-2 py-1 rounded-md"
+                  className="bg-indigo-900 text-white text-sm px-2 py-1 rounded-md"
                   >
                   {tech}
                   </li>

@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Sepuluh Nopember Institute of Technology",
+        "slug":"its-surabaya",
+        "link":"https://www.its.ac.id",
+        "description":"This is my campus, got here in 2022 to study Informatics Engineering. It's like one of the best educational institute in the country."
+    },
+    {
+        "name":"PT Rajawali Holdings Indonesia",
+        "slug":"pt-rajawali-holdings-indonesia",
+        "link":"https://www.rajawaliholdings.com",
+        "description":"Internship here"
+    },
+    {
+        "name":"Schematics ITS",
+        "slug":"schematics-its",
+        "link":"https://schematics-its.com",
+        "description":"Where I learn game development. It's like an annual event, there is logic competition, programming competition, bootcamp and seminars, as well as the fun stuffs."
+    },
+    {
+        "name":"Algorithms and Programming Laboratory",
+        "slug":"alpro-its",
+        "link":"https://www.its.ac.id/informatika/id/fasilitas/laboratorium/laboratorium-algoritma-dan-pemrograman/",
+        "description":"One of many Informatics Engineering Department's laboratorium."
+    },
+    {
+        "name":"Al-Izhar Pondok Labu",
+        "slug":"al-izhar",
+        "link":"https://instagram.com/osis_smaipl",
+        "description":"My beloved school"
+    }
+]
