@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import ProjectCard from "../Projects/ProjectCard"
 import ProjectModal from "../Projects/ProjectModal"
-// import Hero from "./Hero"
+
+import type { Project } from "../../types";
+
 export default function Home(){
-    const [modal, setModal]=useState(null);
+    const [modal, setModal] = useState<Project | null>(null);
+
     return (
         <main>
             <Hero></Hero>
@@ -58,28 +61,34 @@ const Hero=()=>{
     )
 }
 
-function BestProjects({ onOpen }) {
-    const [projects, setProjects] = useState([]);
+// Best Projects Section
+interface BestProjectsProps {
+    onOpen: (project: Project) => void;
+  }
+
+  
+function BestProjects({ onOpen }: BestProjectsProps) {
+    const [projects, setProjects] = useState<Project[]>([]);
     const slugs = ["boombatag-2024", "box-of-curiosity", "studykanji"];
 
     useEffect(() => {
         fetch("/src/assets/projects.json")
-            .then((res) => res.json())
-            .then((data) => {
-                const filtered = data.filter((project: { slug: string; }) =>
-                    slugs.includes(project.slug)
-                );
-                setProjects(filtered);
-            })
-            .catch((err) => console.error("Error fetching projects:", err));
+          .then((res) => res.json())
+          .then((data) => {
+            const filtered = data.filter((project: { slug: string }) =>
+              slugs.includes(project.slug)
+            );
+            setProjects(filtered);
+          })
+          .catch((err) => console.error("Error fetching projects:", err));
     }, []);
 
     return (
-        <section>
+        <section className="">
             <h2 className="text-2xl mb-2 cursor-pointer">
                 🚀 Favorite Projects
             </h2>
-            <div className="w-fit grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.slug}
@@ -98,16 +107,14 @@ function BestShots(){
         "/src/assets/gallery/IMG_9652.JPG"
     ]
     return (
-        <section>
+        <section className="w-full">
             <h2 className="text-2xl font-bold mb-2 cursor-pointer">
                 📸 Best Shots
             </h2>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="w-fit grid grid-cols-1 md:grid-cols-3 gap-4">
                 {bestShots.map((shots)=>(
-                    <div className="funny-rotate z-10 cursor-pointer shadow-md">
-                        <img className="w-64 p-1 bg-white"
-                         src={shots} alt={shots} />
-                    </div>
+                    <img className="w-64 funny-rotate"
+                        src={shots} alt={shots} />
                 ))}
             </div>
         </section>

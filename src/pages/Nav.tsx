@@ -1,12 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
 const tabs = [
     {'name':'Home','to':'/'},
     {'name':'Projects','to':'/projects'},
     {'name':'Experience','to':'/experience'},
-    {'name':'Gallery','to':'/gallery'},
+    // {'name':'Gallery','to':'/gallery'},
 ];
 
 const Nav = () => {
@@ -58,7 +59,7 @@ const NavTab = ({
       className={`${
         selected
           ? "text-white"
-          : "text-slate-300 hover:text-slate-200 hover:bg-gray-800"
+          : "text-slate-300 hover:text-slate-200 hover:bg-indigo-800 transition-all"
       } transition-colors px-4 py-1 rounded-full relative`}
     >
       <span className="relative z-10">{name}</span>

@@ -1,27 +1,39 @@
 import { useEffect, useState } from "react";
 import { SwipeCarousel } from "./SwipeCarousel";
-export default function ProjectModal({ project, onClose }) {
-    const [imgs, setImgs] = useState<string[]>([]);
 
-    useEffect(() => {
+import type { Project } from "../../types"
+
+interface ProjectModalProps {
+  project: Project | null;
+  onClose: () => void;
+}
+
+export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [imgs, setImgs] = useState<string[]>([]);
+
+  useEffect(() => {
     if (!project) return;
 
+    // Create the list of image paths based on the project data
     const prefix = `/src/assets/projects/${project.slug}/`;
-    const paths = Array.from({ length: project.numPhoto }, (_, i) => 
-        `${prefix}${i + 1}.${project.extension}`
+    const paths = Array.from({ length: project.numPhoto }, (_, i) =>
+      `${prefix}${i + 1}.${project.extension}`
     );
 
     setImgs(paths);
-    }, [project]);
-
+  }, [project]);
 
   useEffect(() => {
-    const handleEsc = (e) => {
+    const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
+
+  if (!project) {
+    return null; // Optionally, render a loading spinner or placeholder here
+  }
 
   return (
     <div
@@ -32,27 +44,23 @@ export default function ProjectModal({ project, onClose }) {
         onClick={(e) => e.stopPropagation()} // prevent modal from closing when clicking inside it
         className="base rounded max-w-88 md:max-w-2xl !py-2 md:!py-4 shadow-lg !items-start motion-preset-slide-down"
       >
-        {/* <img
-          src={`/src/assets/projects/${project.slug}/1.${project.extension}`}
-          className="w-full h-auto rounded-lg mb-2"
-          alt={project.name}
-        /> */}
-        <SwipeCarousel 
-          imgs={imgs}>
-            
-        </SwipeCarousel>
+        {imgs.length > 0 ? (
+          <SwipeCarousel imgs={imgs} />
+        ) : (
+          <div className="text-center text-gray-400">No images available</div>
+        )}
         <div className="px-4">
           <h2 className="text-xl font-bold mt-2">{project.name}</h2>
           <p className="tex-lg mb-2">{project.description}</p>
           <ul className="flex gap-x-1">
-              {project.techs.map((tech) => (
-                  <li
-                  key={tech}
-                  className="bg-indigo-900 text-white text-sm px-2 py-1 rounded-md"
-                  >
-                  {tech}
-                  </li>
-              ))}
+            {project.techs.map((tech) => (
+              <li
+                key={tech}
+                className="bg-indigo-900 text-white text-sm px-2 py-1 rounded-md"
+              >
+                {tech}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

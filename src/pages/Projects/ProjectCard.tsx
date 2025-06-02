@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import type { Project } from "../../types"
+import type { MouseEventHandler } from "react";
 
-export default function ProjectCard({project,onClick}){
+interface ProjectCardProps {
+    project: Project;
+    onClick: MouseEventHandler<HTMLDivElement>; // Define the onClick type
+  }
+
+export default function ProjectCard({project,onClick}: ProjectCardProps){
     return (
         <div
             onClick={onClick}
@@ -11,8 +17,8 @@ export default function ProjectCard({project,onClick}){
             <img
                 src={`/src/assets/projects/${project.slug}/1.${project.extension}`}
                 alt={project.name} 
-                className="h-32 w-60 object-cover rounded-md"/>
-            <span className="font-bold truncate w-60 h-6 text-center">{project.name}</span>
+                className="h-32 w-full object-cover rounded-md"/>
+            <span className="font-bold truncate w-32 h-6 text-center">{project.name}</span>
         </div>
     )
 }

@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
+
+interface Education {
+    slug: string;
+    name: string;
+    link: string;
+    start: string;
+    end: string;
+    description: string;
+}
+
 export default function Educaation(){
-    const [educations,setEducations]=useState([]);
+    const [educations,setEducations]=useState<Education[]>([]);
     useEffect(()=>{
         fetch("/src/assets/education2.json")
             .then((res) => res.json())
@@ -18,8 +28,8 @@ export default function Educaation(){
                     
                     <li className="flex gap-x-4 items-center p-4 rounded-xl shadow-md bg-white mb-4">
                         <img src={`/src/assets/logo/${education.slug}.png`}
-                        alt={"/src/assets/logo/" + education.slug + "-logo.jpeg"}
-                        className="h-20 rounded-md"
+                        alt={`/src/assets/logo/${education.slug}-logo.jpeg`}
+                        className="w-20 rounded-md"
                         />
                         <div>
                             <a href={education.link} target="_blank" className="hover:underline">

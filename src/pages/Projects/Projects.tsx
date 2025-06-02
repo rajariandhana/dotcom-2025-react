@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "../Projects/ProjectCard"
 import ProjectModal from "./ProjectModal";
+
+import type { Project } from "../../types";
+
 export default function Projects(){
-    const [projects,setProjects]=useState([]);
-    const [games,setGames]=useState([]);
-    const [webs,setWebs]=useState([]);
-    const [others,setOthers]=useState([]);
-    const [modal, setModal]=useState(null);
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [games,setGames]=useState<Project[]>([]);
+    const [webs,setWebs]=useState<Project[]>([]);
+    const [others,setOthers]=useState<Project[]>([]);
+    const [modal, setModal] = useState<Project | null>(null);
     useEffect(()=>{
         fetch("/src/assets/projects.json")
             .then((res) => res.json())
@@ -38,7 +41,7 @@ export default function Projects(){
          * - not space invader
          * 
          */
-        <main className="!max-w-4xl">
+        <main className="">
             {modal && <ProjectModal project={modal} onClose={() => setModal(null)} />}
             <section>
                 <h2 className="text-xl font-bold mb-2 cursor-pointer">

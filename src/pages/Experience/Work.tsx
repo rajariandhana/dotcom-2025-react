@@ -1,7 +1,24 @@
 import { useEffect, useState } from "react";
+// import CVGenerator from "../CVGenerator";
+
+interface Employer {
+  slug: string;
+  name: string;
+  link: string;
+}
+
+interface Position {
+  slug: string;
+  employer_slug: string;
+  name: string;
+  date: string;
+  description: string;
+  skills: string;
+}
+
 export default function Work(){
-    const [employers, setEmployers] = useState([]);
-    const [positions, setPositions] = useState([]);
+  const [employers, setEmployers] = useState<Employer[]>([]);
+  const [positions, setPositions] = useState<Position[]>([]);
 
     useEffect(() => {
         Promise.all([
@@ -22,13 +39,32 @@ export default function Work(){
         }
         acc[employer_slug].push(position);
         return acc;
-      }, {});
+      }, {} as Record<string, Position[]>);
+
+      const handleDownload = () => {
+        // Create a link element
+        const link = document.createElement('a');
+        link.href = '/src/assets/CV_RalfazzaRajariandhana.pdf'; // Path to your PDF in the public folder
+        link.download = 'CV_RalfazzaRajariandhana.pdf'; // Suggested filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
     
 
     return(
         <section>
-            <h2 className="text-2xl mb-2 cursor-pointer">
-                💼 Experience
+            <h2 className="text-2xl mb-2 cursor-pointer flex items-center gap-x-4">
+                💼 What I've done
+                {/* <CVGenerator></CVGenerator> */}
+                <button onClick={handleDownload}
+                 className="flex items-center gap-x-2 text-sm bg-indigo-500 text-white px-4 py-2 rounded-lg cursor-pointer shadow-md hover:bg-indigo-600 transition-all">
+                  Download CV
+                  <svg className="size-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01"/>
+                  </svg>
+
+                </button>
             </h2>
             <div>
                 {employers.map((employer) => (
@@ -80,33 +116,16 @@ export default function Work(){
     )
 }
 
-function SkillList({ skillsString }) {
-    const skills = skillsString.split("|");
-  
-    return (
-      <ul className="list-disc pl-5">
-        {skills.map((skill, index) => (
-          <li key={index}>{skill}</li>
-        ))}
-      </ul>
-    );
-  }
-  
-
-  function SkillTags({ skillsString }) {
+  function SkillTags({ skillsString }: { skillsString: string }) {
     const skills = skillsString.split("|");
   
     return (
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
-          <span
-            key={index}
-            className="px-4 py-2 text-xs text-white rounded-lg bg-indigo-900"
-          >
+          <span key={index} className="px-4 py-2 text-xs text-white rounded-lg bg-indigo-900">
             {skill}
           </span>
         ))}
       </div>
     );
   }
-  
