@@ -1,5 +1,66 @@
 [
     {
+        "name" : "SEA Catering",
+        "slug" : "seacatering",
+        "techs" : ["MongoDB","Express.js","React","Node.js","Next.js","NextUI","Tailwindcss"],
+        "description" : "Catering web app with full dashboard for both members and full monitoring by admin.",
+        "numPhoto" : 5,
+        "extension" : "png",
+        "repo" : "https://github.com/rajariandhana/seacatering",
+        "demo" : "https://seacatering.vercel.app",
+        "size" : "",
+        "category":"web"
+    },
+    {
+        "name" : "(Not) Space Invaders",
+        "slug" : "not-space-invaders",
+        "techs" : ["Java"],
+        "description" : "A clone of the popular game Space Invader created in Java using Java GUI.",
+        "numPhoto" : 2,
+        "extension" : "png",
+        "repo" : "",
+        "demo" : "",
+        "size" : "",
+        "category":"game"
+    },
+    {
+        "name" : "Wasteless",
+        "slug" : "wasteless",
+        "techs" : ["Express.js", "React", "Tailwindcss","sqlite"],
+        "description" : "Web based application as a bridge between students and canteen staff to reduce canteen food waste. Students can order food in advance, gave feedbacks, and even suggest new menus. Staffs can monitor which menu are popular, amount of orders to prepare.",
+        "numPhoto" : 2,
+        "extension" : "png",
+        "repo" : "",
+        "demo" : "https://wasteless.uqcloud.net",
+        "size" : "",
+        "category":"web"
+    },
+    {
+        "name" : "SIPUTIH",
+        "slug" : "siputih",
+        "techs" : ["React", "TypeScript","Leaflet.js","Tailwindcss"],
+        "description" : "WebGIS based platform to monitor traffic in Keputih, Surabaya, Indonesia.",
+        "numPhoto" : 3,
+        "extension" : "png",
+        "repo" : "",
+        "demo" : "https://siputih-its.com",
+        "size" : "",
+        "category":"web"
+    },
+    {
+        "name" : "Rajawali Holdings Indonesia",
+        "slug" : "rhi",
+        "techs" : ["Tailwindcss","Alpine.js"],
+        "description" : "Created a responsive frontend for the company's profile website, ensuring a seamless user experience across all devices.",
+        "numPhoto" : 3,
+        "extension" : "png",
+        "repo" : "",
+        "demo" : "https://rajawaliholdings.com",
+        "size" : "",
+        "category":"web"
+    },
+    
+    {
         "name" : "SIMPENAN | Sistem Informasi Media Penting dan Aman",
         "slug" : "simpenan",
         "techs" : ["Tailwindcss","Alpine.js","Laravel","Livewire"],
@@ -49,7 +110,7 @@
         "category":"web"
     },
     {
-        "name" : "Boombatag",
+        "name" : "Boombatag 2024",
         "slug" : "boombatag-2024",
         "techs" : ["Unity","C#","Figma"],
         "description" : "Used for Schematics ITS 2024, the game is inspired from the infamous \"Keep Talking and Nobody Explodes.\"",
@@ -110,7 +171,7 @@
         "category":"web"
     },
     {
-        "name" : "Boombatag",
+        "name" : "Boombatag 2023",
         "slug" : "boombatag-2023",
         "techs" : ["Unity","C#","Figma"],
         "description" : "Used for Schematics ITS 2023, the game is inspired from the infamous \"Keep Talking and Nobody Explodes\"",

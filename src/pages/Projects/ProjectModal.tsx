@@ -52,7 +52,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         <div className="px-4">
           <h2 className="text-xl font-bold mt-2">{project.name}</h2>
           <p className="tex-lg mb-2">{project.description}</p>
-          <ul className="flex gap-x-1">
+          <ul className="flex gap-x-1 mb-2">
             {project.techs.map((tech) => (
               <li
                 key={tech}
@@ -62,6 +62,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </li>
             ))}
           </ul>
+          {project.demo ? (
+            <a href={project.demo} target="_blank"
+            className="bg-rose-500 text-white text-sm px-2 py-1 rounded-md hover:bg-rose-600 transition-all ease-in-out transition-300s">Try here</a>
+          ):(
+            <></>
+          )}
         </div>
       </div>
     </div>
