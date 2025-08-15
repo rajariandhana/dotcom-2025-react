@@ -40,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 
 main {
   @apply flex flex-col justify-center items-center max-w-3xl mt-24 md:mt-32 gap-y-6 md:gap-y-12  mx-6 md:mx-auto;
+  /* @apply flex flex-col items-center justify-center max-w-screen-sm lg:max-w-screen-xl pt-4 px-4 gap-12 lg:gap-24 mb-12 lg:mb-24; */
 }
 section{
   @apply motion-preset-slide-down;
@@ -48,3 +49,6 @@ section{
 .skeleton {
   @apply animate-pulse bg-gray-300 rounded-md
 }
+
+/* @plugin "/hero.ts" */
+/* @source '/node_modules/@heroui/theme/dist*.{js,ts,jsx,tsx}'; */

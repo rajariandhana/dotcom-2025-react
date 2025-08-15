@@ -25,7 +25,7 @@ export default function Work() {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/src/assets/Resume 2025 June.pdf";
+    link.href = "/src/assets/Resume.pdf";
     link.download = "Resume_RalfazzaRajariandhana.pdf";
     document.body.appendChild(link);
     link.click();

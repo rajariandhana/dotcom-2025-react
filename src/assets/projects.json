@@ -1,4 +1,29 @@
+
 [
+    {
+        "name" : "Mercusuram",
+        "slug" : "mercusuram",
+        "techs" : ["Godot","GDScript"],
+        "description" : "IGI Game Jam 2025 is a game jam held by University of Indonesia with this year's theme \"Purpose in the Unknown\". My game is about a lighthouse (meaning mercusuar in Indonesia) that must shine it's light towards incoming ship preventing them from crashing into the island. The game submitted for the competition has a lot of bugs and implemented features since the it happens at the same time with GMTK's Game Jam meaning I only have 15 hours working on this game. After the jam ended I fixed the bugs and implement more features such as tutorial screen, audio, even more obstacles like sharks and tornadoes.", 
+        "numPhoto" : 2,
+        "extension" : "png",
+        "repo" : "https://github.com/IGI-Game-Jam-2025",
+        "demo" : "https://rj-game-studio.itch.io/mercusuram",
+        "size" : "",
+        "category":"game"
+    },
+    {
+        "name" : "QQ Joker",
+        "slug" : "qq-joker",
+        "techs" : ["Godot","GDScript"],
+        "description" : "GMTK Game Jam is an international annual game jam held by the youtuber Game Maker's Toolkit. With this year's theme \"Loop\" I joined a random team through the discord server and made a card game where players must loop through the deck. Players can swap cards between baord and hand, when all cards on board matches their suit, they are discarded.",
+        "numPhoto" : 2,
+        "extension" : "png",
+        "repo" : "https://github.com/GMTK-Game-Jam-2025",
+        "demo" : "https://loliakulka.itch.io/q-q-joker",
+        "size" : "",
+        "category":"game"
+    },
     {
         "name" : "SEA Catering",
         "slug" : "seacatering",

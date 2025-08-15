@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^1.10.0",
+    "@heroui/react": "^2.7.11",
     "@tailwindcss/vite": "^4.1.8",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.23.0",
     "html2pdf.js": "^0.10.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

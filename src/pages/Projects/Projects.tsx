@@ -65,11 +65,7 @@ export default function Projects() {
           {Object.entries(projectsByCategory).map(([title, projectList]) => (
             <section key={title}>
               <h2 className="text-xl font-bold mb-2 cursor-pointer">
-                {title === "Game Development"
-                  ? "🎮 " + title
-                  : title === "Web Development"
-                  ? "🌐 " + title
-                  : "💡 " + title}
+                {title}
               </h2>
               <ul className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                 {projectList.map((project) => (

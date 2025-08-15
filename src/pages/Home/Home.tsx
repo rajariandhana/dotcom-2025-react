@@ -27,14 +27,17 @@ const Hero = () => {
           className="size-32 rounded-full object-cover bg-indigo-rose p-1 mb-12"
         />
       </div>
-      <h1 className="font-mono font-bold">
+      {/* <h1 className="font-mono font-bold">
         🌎{" "}
         <span className="text-indigo-rose motion-preset-pop ">
           Hello, world!
         </span>
+      </h1> */}
+      <h1 className="!font-semibold text-2xl -mt-4">
+        🌎 Hello, world! I'm Ralfazza Rajariandhana
       </h1>
       <p className="text-justify">
-        You'll find several of my best works such as my projects as a developer,
+       You'll find several of my best works such as my projects as a developer,
         my interest in photography, and anything else since this is my website
         and I can do anything I want here.
       </p>
@@ -133,7 +136,7 @@ function BestProjects({ onOpen }: BestProjectsProps) {
   }, []);
 
   return (
-    <section className="">
+    <section className="w-full">
       <h2 className="text-2xl mb-2 cursor-pointer">🚀 Favorite Projects</h2>
       {loading ? (
         <div className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -142,7 +145,7 @@ function BestProjects({ onOpen }: BestProjectsProps) {
           <ProjectCardSkeleton></ProjectCardSkeleton>
         </div>
       ) : (
-        <div className="w-fit grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}

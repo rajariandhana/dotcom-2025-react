@@ -51,6 +51,7 @@ export const SwipeCarousel = ({ imgs }: SwipeCarouselProps) => {
         dragConstraints={{ left: 0, right: 0 }}
         style={{ x: dragX }}
         animate={{ translateX: `-${imgIndex * 100}%` }}
+        // @ts-expect-error: wkwkwk
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing !p-0"
@@ -82,6 +83,7 @@ const Images = ({
         animate={{
           scale: imgIndex === idx ? 0.95 : 0.85,
         }}
+        // @ts-expect-error: wkwkwk
         transition={SPRING_OPTIONS}
         className="aspect-video !w-full shrink-0 rounded-xl bg-neutral-800 object-cover !p-0"
       />

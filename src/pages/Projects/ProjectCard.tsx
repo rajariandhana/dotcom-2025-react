@@ -26,7 +26,7 @@ export default function ProjectCard({ project, onClick }: Props) {
 
 export const ProjectCardSkeleton = () => {
   return (
-    <div className="relative base w-fit gap-y-2 hover:-rotate-3 group hover:scale-105 transition-all ease-out duration-300 z-10 cursor-pointer p-2">
+    <div className="relative base w-fit gap-y-2 p-2">
       <div className="w-fit flex flex-col justify-center items-center">
         <div className="h-32 w-56 skeleton" />
         <span className="font-bold truncate w-40 h-6 text-center mt-2 block skeleton" />

@@ -23,7 +23,7 @@ const Nav = () => {
   return (
     //replace absolute with fixed, it makes it sticky but create a bug (scrol down then pick another tab)
     <nav className="flex justify-center items-center absolute top-0 left-1/2 transform -translate-x-1/2 mt-8 z-10">
-        <div className="w-fit bg-indigo-950 p-1 flex gap-0 md:gap-4 text-sm md:text-lg rounded-full shadow-lg">
+        <div className="w-fit bg-blue-950 p-1 flex gap-0 md:gap-4 text-sm md:text-lg rounded-full shadow-lg">
             {tabs.map((tab) => (
                 <NavTab
                 name={tab.name}
@@ -59,7 +59,7 @@ const NavTab = ({
       className={`${
         selected
           ? "text-white"
-          : "text-slate-300 hover:text-slate-200 hover:bg-indigo-800 transition-all"
+          : "text-slate-300 hover:text-slate-200 hover:bg-blue-900 transition-all"
       } transition-colors px-4 py-1 rounded-full relative`}
     >
       <span className="relative z-10">{name}</span>
